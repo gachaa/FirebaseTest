@@ -43,7 +43,7 @@ class SignupViewController: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             //エラーなしなら、認証完了
             if error == nil{
-                // メールのバリデーションを行う
+                // メールのバリデーション(ユーザー認証)を行う
                 user?.sendEmailVerification(completion: { (error) in
                     if error == nil {
                         // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう

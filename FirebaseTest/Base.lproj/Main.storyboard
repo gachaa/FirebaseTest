@@ -55,7 +55,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="ZK5-4N-YeH" id="n22-hl-IxY"/>
                         <outlet property="passwordTextField" destination="1Lv-OH-gRL" id="3xg-YP-7H3"/>
-                        <segue destination="m2K-Tn-hTn" kind="push" identifier="toLogin" id="5YV-yg-r3P"/>
+                        <segue destination="m2K-Tn-hTn" kind="modal" identifier="toLogin" id="5YV-yg-r3P"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="toView" id="9JL-Bh-J6M"/>
                     </connections>
                 </viewController>
