@@ -27,15 +27,16 @@ import UIKit
 import Firebase //Firebaseをインポート
 
 class ViewController: UIViewController, UITextFieldDelegate {
+
+    var ref: FIRDatabaseReference! //FirebaseDatabaseのルートを指定
     
-    let ref = FIRDatabase.database().reference() //FirebaseDatabaseのルートを指定
+    //@IBOutlet var textField: UITextField! //投稿のためのTextField
     
-    @IBOutlet var textField: UITextField! //投稿のためのTextField
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textField.delegate = self //デリゲートをセット
+        ref = FIRDatabase.database().reference()
+        //textField.delegate = self //デリゲートをセット
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func create() {
         //textFieldになにも書かれてない場合は、その後の処理をしない
-        guard let text = textField.text else { return }
+        //guard let text = textField.text else { return }
         
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
