@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FIRApp.configure()
+//        Database.database().isPersistenceEnabled = true //ローカルにデータベースを構築する設定
+
         return true
     }
 

@@ -22,6 +22,18 @@ class SignupViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true // 文字を非表示に
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ログインしていれば、遷移
+        //FIRAuthがユーザー認証のためのフレーム
+        //checkUserVerifyでチェックして、ログイン済みなら画面遷移
+        print("ログイン済みかチェック")
+        if self.checkUserVerify() {
+            self.transitionToView()
+        }
+    }
+
+    
     //サインアップボタン
     @IBAction func willSignup() {
         //サインアップのための関数
@@ -81,10 +93,6 @@ class SignupViewController: UIViewController {
 //        super.didReceiveMemoryWarning()
 //    }
 //
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//    }
     
 
     /*
