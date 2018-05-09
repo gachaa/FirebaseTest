@@ -649,6 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QN8YQN7K6Q;
 				INFOPLIST_FILE = FirebaseTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erika.FirebaseTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -665,6 +666,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QN8YQN7K6Q;
 				INFOPLIST_FILE = FirebaseTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erika.FirebaseTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -126,12 +126,12 @@ class ListViewController: UIViewController {
         }
     }
     
-    func query() {
-        //"content"の中に、"MIB"という単語があるかを調べる
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).queryOrdered(byChild: "content").queryEqual(toValue: "MIB").observe(.value, with: { (snap) in
-            print(snap)
-        })
-    }
+//    func query() {
+//        //"content"の中に、"MIB"という単語があるかを調べる
+//        ref.child((FIRAuth.auth()?.currentUser?.uid)!).queryOrdered(byChild: "content").queryEqual(toValue: "MIB").observe(.value, with: { (snap) in
+//            print(snap)
+//        })
+//    }
 
 }
 

@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //FirebaseDatabaseのルートを指定
         ref = FIRDatabase.database().reference()
-        textField.delegate = self as! UITextFieldDelegate //デリゲートをセット
+        textField.delegate = self //デリゲートをセット
     }
     
     override func viewWillAppear(_ animated: Bool) {
