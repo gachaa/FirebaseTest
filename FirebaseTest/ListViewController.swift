@@ -16,7 +16,7 @@ class ListViewController: UIViewController {
     var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
 
     var ref: FIRDatabaseReference!
-
+ 
     var selectedSnap: FIRDataSnapshot?
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ListViewController: UIViewController {
         
         //Firebaseのルートを宣言しておく
         ref = FIRDatabase.database().reference()
-        
+
         //データを読み込むためのメソッド
         self.read()
 
@@ -61,15 +61,27 @@ class ListViewController: UIViewController {
     }
 
     func read() {
+        print("\nread\n")
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
         //自分のidの子を含む部分木を読み込む？
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+//        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
+//            if snapShots.children.allObjects is [FIRDataSnapshot] {
+//                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+//
+//                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+//
+//                self.reload(snapShots)
+//            }
+//        })
+        
+        //データの中のusers以下のデータを読み込み
+        ref.child("users").observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [FIRDataSnapshot] {
                 print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
-
+                
                 print("snapShot...\(snapShots)") //読み込んだデータをプリント
-
+                
                 self.reload(snapShots)
             }
         })
@@ -86,12 +98,13 @@ class ListViewController: UIViewController {
                 contentArray.append(item as! FIRDataSnapshot)
             }
             // ローカルのデータベースを更新
-            ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            ref.child("users").keepSynced(true)
             //テーブルビューをリロード
             table.reloadData()
         }
     }
     
+    //要変更
     func delete(deleteIndexPath indexPath: IndexPath) {
         ref.child((FIRAuth.auth()?.currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
         contentArray.remove(at: indexPath.row)
@@ -153,11 +166,13 @@ extension ListViewController: UITableViewDataSource {
         //itemの中身を辞書型に変換
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
-        cell.contentLabel.text = String(describing: content["content"]!)
-        //dateという添字で保存していた投稿時間をtimeという定数に代入
-        let time = content["date"] as! TimeInterval
-        //getDate関数を使って、時間をtimestampから年月日に変換して表示
-        cell.postDateLabel.text = self.getDate(time/1000)
+        cell.nameLabel.text = String(describing: content["name"]!)
+        
+        
+//        //dateという添字で保存していた投稿時間をtimeという定数に代入
+//        let time = content["date"] as! TimeInterval
+//        //getDate関数を使って、時間をtimestampから年月日に変換して表示
+//        cell.postDateLabel.text = self.getDate(time/1000)
         
         return cell
     }
@@ -165,6 +180,7 @@ extension ListViewController: UITableViewDataSource {
 
 extension ListViewController: UITableViewDelegate {
     
+    //要変更？
     //スワイプ削除のメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //デリートボタンを追加

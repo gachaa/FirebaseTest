@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E7AF15F0141DAF7DAC83E99 /* Pods_FirebaseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6FBF52788D56FED0FBA34 /* Pods_FirebaseTestUITests.framework */; };
+		5956487720A576B100CA2660 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956487520A576B100CA2660 /* chatTableViewCell.swift */; };
+		5956487820A576B100CA2660 /* chatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5956487620A576B100CA2660 /* chatTableViewCell.xib */; };
 		59AE644D2025530D00A1213B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AE644C2025530D00A1213B /* AppDelegate.swift */; };
 		59AE644F2025530D00A1213B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AE644E2025530D00A1213B /* ViewController.swift */; };
 		59AE64522025530D00A1213B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59AE64502025530D00A1213B /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		2B0C870CDAC56964BBC08A7F /* Pods-FirebaseTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTestUITests/Pods-FirebaseTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39B220389BC1EA0BAD26EDC3 /* Pods-FirebaseTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTest/Pods-FirebaseTest.debug.xcconfig"; sourceTree = "<group>"; };
 		43DDD5E9986586D8B6863F0F /* Pods-FirebaseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTestTests/Pods-FirebaseTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		5956487520A576B100CA2660 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
+		5956487620A576B100CA2660 /* chatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = chatTableViewCell.xib; sourceTree = "<group>"; };
 		59AE64492025530D00A1213B /* FirebaseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59AE644C2025530D00A1213B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59AE644E2025530D00A1213B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5956487420A5766F00CA2660 /* chatTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5956487520A576B100CA2660 /* chatTableViewCell.swift */,
+				5956487620A576B100CA2660 /* chatTableViewCell.xib */,
+			);
+			path = chatTableViewCell;
+			sourceTree = "<group>";
+		};
 		59AE64402025530D00A1213B = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +157,7 @@
 				59CD0CE4202C24A8008FC8C1 /* LoginViewController.swift */,
 				59CD0CE62037F7DF008FC8C1 /* ListViewController.swift */,
 				59AE644E2025530D00A1213B /* ViewController.swift */,
+				5956487420A5766F00CA2660 /* chatTableViewCell */,
 				59CD0CEC2037F8D8008FC8C1 /* ListTableViewCell */,
 				59AE64502025530D00A1213B /* Main.storyboard */,
 				59AE64532025530D00A1213B /* Assets.xcassets */,
@@ -310,6 +324,7 @@
 				59AE64572025530D00A1213B /* LaunchScreen.storyboard in Resources */,
 				59AE647B2025579100A1213B /* GoogleService-Info.plist in Resources */,
 				59AE64542025530D00A1213B /* Assets.xcassets in Resources */,
+				5956487820A576B100CA2660 /* chatTableViewCell.xib in Resources */,
 				59AE64522025530D00A1213B /* Main.storyboard in Resources */,
 				59CD0CEB2037F8B5008FC8C1 /* ListTableViewCell.xib in Resources */,
 			);
@@ -476,6 +491,7 @@
 			files = (
 				59CD0CE5202C24A9008FC8C1 /* LoginViewController.swift in Sources */,
 				59CD0CE3202C203C008FC8C1 /* SignupViewController.swift in Sources */,
+				5956487720A576B100CA2660 /* chatTableViewCell.swift in Sources */,
 				59AE644F2025530D00A1213B /* ViewController.swift in Sources */,
 				59CD0CE72037F7E0008FC8C1 /* ListViewController.swift in Sources */,
 				59AE644D2025530D00A1213B /* AppDelegate.swift in Sources */,

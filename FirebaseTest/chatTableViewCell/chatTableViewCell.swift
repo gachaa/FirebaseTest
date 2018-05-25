@@ -1,17 +1,16 @@
 //
-//  ListTableViewCell.swift
+//  chatTableViewCell.swift
 //  FirebaseTest
 //
-//  Created by 前本英里香 on 2018/02/17.
+//  Created by 前本英里香 on 2018/05/11.
 //  Copyright © 2018年 Erika Maemoto. All rights reserved.
 //
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+class chatTableViewCell: UITableViewCell {
     
-    @IBOutlet var nameLabel: UILabel!
-    //@IBOutlet var postDateLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

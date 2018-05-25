@@ -65,14 +65,15 @@ class ViewController: UIViewController {
     
     //投稿ボタン
     @IBAction func post(_ sender: UIButton) {
-        if isCreate {
-            //投稿のためのメソッド
-            create()
-        }else {
-            //更新するためのメソッド
-            update()
-        }
-        _ = self.navigationController?.popViewController(animated: true)
+        create()
+//        if isCreate {
+//            //投稿のためのメソッド
+//            create()
+//        }else {
+//            //更新するためのメソッド
+//            update()
+//        }
+//        _ = self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -85,8 +86,11 @@ class ViewController: UIViewController {
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"content": text, "date": FIRServerValue.timestamp()])
-    
+        //ここでuserの子が作られてる。
+//        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"content": text, "date": FIRServerValue.timestamp()])
+
+        self.ref.childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"content": text, "date": FIRServerValue.timestamp()])
+
     }
     
     //更新のためのメソッド

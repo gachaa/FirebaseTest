@@ -11,12 +11,15 @@ import Firebase
 
 class SignupViewController: UIViewController {
     
+    var ref: FIRDatabaseReference!
+    
     @IBOutlet var emailTextField: UITextField! // Emailを打つためのTextField
     
     @IBOutlet var passwordTextField: UITextField! //Passwordを打つためのTextField
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
         emailTextField.delegate = self //デリゲートをセット
         passwordTextField.delegate = self //デリゲートをセット
         passwordTextField.isSecureTextEntry = true // 文字を非表示に
@@ -58,6 +61,8 @@ class SignupViewController: UIViewController {
                 // メールのバリデーション(ユーザー認証)を行う
                 user?.sendEmailVerification(completion: { (error) in
                     if error == nil {
+                        //usersに情報を登録
+                        self.updateUsers()
                         // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう
                         self.transitionToLogin()
                     }else {
@@ -75,6 +80,11 @@ class SignupViewController: UIViewController {
     func checkUserVerify()  -> Bool {
         guard let user = FIRAuth.auth()?.currentUser else { return false }
         return user.isEmailVerified
+    }
+    
+    //usersツリーの設定をアップデート
+    func updateUsers() {
+        self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).setValue(["name": "user1", "rooms": "room1"])
     }
     
     //ログイン画面への遷移
